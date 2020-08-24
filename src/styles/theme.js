@@ -5,6 +5,7 @@ export default {
         white: '#FFFFFF',
         darkGrey: '#2b2b2b',
         orange: '#DB896B',
-        error: '#E3683B'
+        error: '#E3683B',
+        blue: '#3A9E8A'
     }
 };

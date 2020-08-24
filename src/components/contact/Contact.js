@@ -1,11 +1,23 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
-import Button from 'react-bootstrap/Button';
+import StyledBtn from '../layout/button/StyledButton';
 import Form from 'react-bootstrap/Form';
 import Error from './error/Error';
 import Heading from '../layout/heading/Heading';
 import { yupResolver } from '@hookform/resolvers';
+import styled from 'styled-components';
+
+//Syled components 
+const StyledForm = styled(Form)`
+    margin-bottom: 30px;
+`
+
+const FormSentTxt = styled.p`
+    color: ${({theme}) => theme.colors.blue};
+    font-weight: bold;
+    text-align: center;
+`
 
 const schema = yup.object().shape( {
     firstName: yup
@@ -41,8 +53,8 @@ function Contact() {
     return (
         <>
             <Heading title="Contact form" />
-            <Form onSubmit={handleSubmit( onSubmit )} >
-                {formSent && <p>Form was submitted. Thank you! We will respond to you shortly.</p>}                
+            <StyledForm onSubmit={handleSubmit( onSubmit )} >
+                {formSent && <FormSentTxt>Form was submitted. Thank you! We will respond to you shortly.</FormSentTxt>}                
                 <Form.Group>
                     <Form.Label>First Name</Form.Label>
                     <Form.Control type="text" name="firstName" placeholder="First name" ref={register()} />
@@ -67,9 +79,9 @@ function Contact() {
                     {errors.message && <Error>{errors.message.message}</Error>}
                 </Form.Group>
 
-                <Button type="submit">Submit</Button>
+                <StyledBtn type="submit">Submit</StyledBtn>
 
-            </Form>
+            </StyledForm>
         </>
     )
 }

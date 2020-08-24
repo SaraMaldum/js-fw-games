@@ -2,23 +2,36 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
+import StyledBtn from '../layout/button/StyledButton';
+import styled from 'styled-components';
+
+const StyledCard = styled(Card)`
+filter: drop-shadow(5px 5px 10px #27423D);
+    height: 410px;
+    margin-bottom: 20px;
+` 
+const StyledImg = styled(Card) `
+    background-image: url(${props => props.img});
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 180px;
+` 
 
 function GameItems( { id, name, background_image, rating, released } ) {
     return (
-        <Card>
-            <Card.Img variant="top" src={background_image} alt="Game cover photo" />
+        <StyledCard>
+            <StyledImg variant="top" img={background_image} alt="Game cover photo" />
             <Card.Body>
                 <Card.Title>{name}</Card.Title>
                 <Card.Text>Release date: {released}</Card.Text>
                 <Card.Text>Game rating: {rating}</Card.Text>
                 <Link to={'games/' + id}>
-                    <Button variant="secondary" block>
+                    <StyledBtn variant="secondary" block>
                         View details
-                    </Button>
+                    </StyledBtn>
                 </Link>
             </Card.Body>
-        </Card>
+        </StyledCard>
     );
 }
 
