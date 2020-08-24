@@ -1,25 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
+import NavBar from './components/layout/navbar/Navbar';
+import Footer from './components/layout/footer/Footer';
+import GlobalStyles from './styles/GlobalStyles';
+import { ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
 import './App.css';
+import theme from './styles/theme';
+
+const Wrapper = styled.div`
+  &.wrapper {
+    flex: 1 0 auto;
+}
+`
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ThemeProvider theme={theme}>
+        <Wrapper className="wrapper">
+          <GlobalStyles />
+          <NavBar />
+        </Wrapper>
+        <Footer>&copy; Sara Maldum</Footer>
+      </ThemeProvider>
+    </>
   );
 }
 
