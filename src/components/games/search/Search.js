@@ -9,7 +9,7 @@ export default function Search( { handleSearch } ) {
             <h3>Search:</h3>
             <InputGroup>
                 <FormControl placeholder="Search by name..."
-                    onChange={event => handleSearch( event )} />
+                    onChange={event => handleSearch( event )} />  
             </InputGroup>
         </>
     );
