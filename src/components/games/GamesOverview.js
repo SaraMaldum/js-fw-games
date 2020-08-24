@@ -8,7 +8,7 @@ import Search from './search/Search';
 
 function GamesOverview() {
     const [games, setGames] = useState( [] );
-    const [searchGame, setSearchGame] = useState( [] );
+    const [filteredGames, setFilteredGames] = useState( [] );
     const [loading, setLoading] = useState( true );
 
     useEffect( () => {
@@ -16,7 +16,7 @@ function GamesOverview() {
             .then( response => response.json() )
             .then( json => {
                 setGames( json.results );
-                setSearchGame( json.results );
+                setFilteredGames( json.results );
             } )
             .catch( error => console.log( error ) )
             .finally( () => setLoading( false ) );
@@ -30,10 +30,10 @@ function GamesOverview() {
 
             if ( lowerCaseName.startsWith( searchValue ) ) {
                 return true;
-            }
+            } 
             return false;
         } );
-        setSearchGame( filteredArray );
+        setFilteredGames( filteredArray );
     }
 
     if ( loading ) {
@@ -43,8 +43,9 @@ function GamesOverview() {
     return (
         <>
             <Search handleSearch={filterGames} />
+            {filteredGames.length === 0 && <p>No results found</p>}
             <Row>
-                {searchGame.map( game => {
+                {filteredGames.map( game => {
                     const { id, name, background_image, rating, released } = game;
                     return (
                         <Col sm={6} md={4} lg={3} key={id}>
