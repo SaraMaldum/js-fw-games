@@ -8,6 +8,10 @@ const GlobalStyle = createGlobalStyle`
         background-color: ${({theme}) => theme.colors.blueGreen};
         color: ${({theme}) => theme.colors.white};
     }
+
+    h1, h2 {
+        text-align: center;
+    }
 `
 
 export default GlobalStyle;

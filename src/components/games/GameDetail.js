@@ -20,7 +20,12 @@ const StyledImage = styled(Image)`
 
 const StyledWebLink = styled.a`
     color: ${({ theme }) => theme.colors.orange};
-    position: relative;
+
+    &:hover {
+        color: ${({ theme }) => theme.colors.orange};
+        font-weight: bold;
+        text-decoration: none;
+    }
 `
 
 function GameDetail() {
@@ -48,7 +53,7 @@ function GameDetail() {
             <Heading title="Game details" />
             <Row>
                 <Col md={12}>
-                    <h2 className="text-center">{gamesDetail.name}</h2>
+                    <h2>{gamesDetail.name}</h2>
                     <StyledImage src={gamesDetail.background_image} />
                 </Col>
 
@@ -57,7 +62,7 @@ function GameDetail() {
                 </Col>
 
                 <Col md={4}>
-                    <h3 >Platforms:</h3>
+                    <h3>Platforms:</h3>
                     <Platforms platforms={gamesDetail.platforms} />
                 </Col>
 

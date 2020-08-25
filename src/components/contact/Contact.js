@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import StyledBtn from '../layout/button/StyledButton';
 import Form from 'react-bootstrap/Form';
-import Error from './error/Error';
+import ErrorMsg from './error/Error';
 import Heading from '../layout/heading/Heading';
 import { yupResolver } from '@hookform/resolvers';
 import styled from 'styled-components';
@@ -58,25 +58,25 @@ function Contact() {
                 <Form.Group>
                     <Form.Label>First Name</Form.Label>
                     <Form.Control type="text" name="firstName" placeholder="First name" ref={register()} />
-                    {errors.firstName && <Error>{errors.firstName.message}</Error>}
+                    {errors.firstName && <ErrorMsg>{errors.firstName.message}</ErrorMsg>}
                 </Form.Group>
 
                 <Form.Group>
                     <Form.Label>Last Name</Form.Label>
                     <Form.Control type="text" name="lastName" placeholder="Last name" ref={register()} />
-                    {errors.lastName && <Error>{errors.lastName.message}</Error>}
+                    {errors.lastName && <ErrorMsg>{errors.lastName.message}</ErrorMsg>}
                 </Form.Group>
 
                 <Form.Group>
                     <Form.Label>Email</Form.Label>
                     <Form.Control type="email" name="email" placeholder="Enter your email" ref={register()} />
-                    {errors.email && <Error>{errors.email.message}</Error>}
+                    {errors.email && <ErrorMsg>{errors.email.message}</ErrorMsg>}
                 </Form.Group>
 
                 <Form.Group>
                     <Form.Label>Message</Form.Label>
                     <Form.Control type="text" as="textarea" rows="3" name="message" placeholder="Your message here" ref={register()} />
-                    {errors.message && <Error>{errors.message.message}</Error>}
+                    {errors.message && <ErrorMsg>{errors.message.message}</ErrorMsg>}
                 </Form.Group>
 
                 <StyledBtn type="submit">Submit</StyledBtn>

@@ -23,6 +23,7 @@ const StyledNavbar = styled(Navbar)`
 const StyledLink = styled(NavLink)`
     color: white;
     padding: 10px;
+    border-bottom: 1px dotted white;
 
     &:hover {
         font-weight: bold;
