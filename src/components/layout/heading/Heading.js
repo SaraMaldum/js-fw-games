@@ -8,7 +8,7 @@ const StyledH1 = styled.h1`
     color: #DB896B;
 `
 
-function Heading( { title } ) {
+function Heading({ title }) {
     return <StyledH1>{title}</StyledH1>;
 }
 

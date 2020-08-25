@@ -19,7 +19,7 @@ const StyledImage = styled(Image)`
 `
 
 const StyledWebLink = styled.a`
-    color: ${({theme}) => theme.colors.orange};
+    color: ${({ theme }) => theme.colors.orange};
     position: relative;
 `
 

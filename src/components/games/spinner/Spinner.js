@@ -6,7 +6,7 @@ const StyledSpinner = styled(Spinner)`
     top: 50%;
     left: 50%;
     margin-top: 50px;
-    color: ${({theme}) => theme.colors.orange};
+    color: ${({ theme }) => theme.colors.orange};
 `
 
 export default StyledSpinner;

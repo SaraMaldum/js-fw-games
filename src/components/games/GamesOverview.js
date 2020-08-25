@@ -13,37 +13,37 @@ const StyledResultMsg = styled.p`
 `
 
 function GamesOverview() {
-    const [games, setGames] = useState( [] );
-    const [filteredGames, setFilteredGames] = useState( [] );
-    const [loading, setLoading] = useState( true );
+    const [games, setGames] = useState([]);
+    const [filteredGames, setFilteredGames] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-    useEffect( () => {
-        fetch( GAMES_URL )
-            .then( response => response.json() )
-            .then( json => {
-                setGames( json.results );
-                setFilteredGames( json.results );
-            } )
-            .catch( error => console.log( error ) )
-            .finally( () => setLoading( false ) );
-    }, [] );
+    useEffect(() => {
+        fetch(GAMES_URL)
+            .then(response => response.json())
+            .then(json => {
+                setGames(json.results);
+                setFilteredGames(json.results);
+            })
+            .catch(error => console.log(error))
+            .finally(() => setLoading(false));
+    }, []);
 
-    const filterGames = function ( e ) {
+    const filterGames = function (e) {
         const searchValue = e.target.value.toLowerCase();
 
-        const filteredArray = games.filter( function ( specificGame ) {
+        const filteredArray = games.filter(function (specificGame) {
             const lowerCaseName = specificGame.name.toLowerCase();
 
-            if ( lowerCaseName.startsWith( searchValue ) ) {
+            if (lowerCaseName.startsWith(searchValue)) {
                 return true;
-            } 
+            }
             return false;
-        } );
-        setFilteredGames( filteredArray );
+        });
+        setFilteredGames(filteredArray);
     }
 
-    if ( loading ) {
-        return <StyledSpinner animation="border" size="md"/>;
+    if (loading) {
+        return <StyledSpinner animation="border" size="md" />;
     }
 
     return (
@@ -51,7 +51,7 @@ function GamesOverview() {
             <Search handleSearch={filterGames} />
             {filteredGames.length === 0 && <StyledResultMsg>No results found</StyledResultMsg>}
             <Row>
-                {filteredGames.map( game => {
+                {filteredGames.map(game => {
                     const { id, name, background_image, rating, released } = game;
                     return (
                         <Col sm={6} md={4} key={id}>
@@ -62,7 +62,7 @@ function GamesOverview() {
                                 released={released} />
                         </Col>
                     );
-                } )}
+                })}
             </Row>
         </>
     );

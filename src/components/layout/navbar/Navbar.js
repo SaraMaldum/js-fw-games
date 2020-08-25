@@ -18,9 +18,9 @@ import styled from 'styled-components';
 //Styled components
 const StyledNavbar = styled(Navbar)`
     text-transform: uppercase;
-` 
+`
 
-const StyledLink = styled(NavLink) `
+const StyledLink = styled(NavLink)`
     color: white;
     padding: 10px;
 
@@ -29,7 +29,7 @@ const StyledLink = styled(NavLink) `
         color: white;
         text-decoration: none;
     }
-` 
+`
 
 const style = {
     fontWeight: 'bold',
@@ -37,21 +37,21 @@ const style = {
 }
 
 const StyledGamepad = styled(GiGamepad)`
-    color: ${({theme}) => theme.colors.orange};
+    color: ${({ theme }) => theme.colors.orange};
     font-size: 50px;
 
     &:hover {
         transition: .3s;
-        color: ${({theme}) => theme.colors.white};
+        color: ${({ theme }) => theme.colors.white};
     }
-` 
+`
 
 function Menu() {
     return (
         <Router>
             <StyledNavbar variant="dark" expand="lg">
                 <NavLink to="/">
-                    <Navbar.Brand><StyledGamepad/></Navbar.Brand>
+                    <Navbar.Brand><StyledGamepad /></Navbar.Brand>
                 </NavLink>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">

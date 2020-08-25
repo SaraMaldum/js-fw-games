@@ -9,16 +9,16 @@ const StyledCard = styled(Card)`
     filter: drop-shadow(5px 5px 10px #2b2b2b);
     height: 410px;
     margin-bottom: 20px;
-    color: ${({theme}) => theme.colors.darkGrey}
-` 
-const StyledImg = styled(Card) `
+    color: ${({ theme }) => theme.colors.darkGrey}
+`
+const StyledImg = styled(Card)`
     background-image: url(${props => props.img});
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 180px;
-` 
+`
 
-function GameItems( { id, name, background_image, rating, released } ) {
+function GameItems({ id, name, background_image, rating, released }) {
     return (
         <StyledCard>
             <StyledImg variant="top" img={background_image} alt={name} />

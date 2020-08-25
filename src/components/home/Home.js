@@ -3,7 +3,7 @@ import Heading from '../layout/heading/Heading';
 import GamesOverview from '../games/GamesOverview';
 
 function Home() {
-    return(
+    return (
         <>
             <Heading title="Games" />
             <GamesOverview />
