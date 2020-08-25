@@ -1,20 +1,27 @@
 import React from 'react';
 import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import { GiPistolGun } from 'react-icons/gi';
+import styled from 'styled-components';
 
-function Genres( { genres } ) {
+const StyledListItem = styled(GiPistolGun)`
+    padding-right: 10px;
+    font-size: 30px;
+`
+
+function Genres({ genres }) {
     return (
         <Row>
-            <ul>
-                {genres.map( genresName => {
+            <Col>
+                {genres.map(genresName => {
                     const { name } = genresName;
                     return (
-                        <li key={genresName.name}>
-                            {name} <GiPistolGun />
-                        </li>
+                        <Col key={genresName.name}>
+                            <StyledListItem /> {name}
+                        </Col>
                     )
-                } )}
-            </ul>
+                })}
+            </Col>
         </Row >
     )
 }

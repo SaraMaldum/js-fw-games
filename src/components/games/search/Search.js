@@ -13,7 +13,7 @@ const StyledSearchField = styled(InputGroup)`
 export default function Search( { handleSearch } ) {
     return (
         <>
-            <h3>Search:</h3>
+            <h3>Find your game:</h3>
             <StyledSearchField>
                 <FormControl placeholder="Search by name..."
                     onChange={event => handleSearch( event )} />  

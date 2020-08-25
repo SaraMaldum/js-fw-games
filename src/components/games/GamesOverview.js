@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Spinner from "react-bootstrap/Spinner";
 import { GAMES_URL } from '../../constants/api';
 import GameItems from './GameItems';
 import Search from './search/Search';
+import StyledSpinner from './spinner/Spinner';
+import styled from 'styled-components';
+
+const StyledResultMsg = styled.p`
+    text-align: center;
+    font-weight: bold;
+`
 
 function GamesOverview() {
     const [games, setGames] = useState( [] );
@@ -37,18 +43,18 @@ function GamesOverview() {
     }
 
     if ( loading ) {
-        return <Spinner animation="border" size="md"/>;
+        return <StyledSpinner animation="border" size="md"/>;
     }
 
     return (
         <>
             <Search handleSearch={filterGames} />
-            {filteredGames.length === 0 && <p>No results found</p>}
+            {filteredGames.length === 0 && <StyledResultMsg>No results found</StyledResultMsg>}
             <Row>
                 {filteredGames.map( game => {
                     const { id, name, background_image, rating, released } = game;
                     return (
-                        <Col sm={6} md={4} lg={3} key={id}>
+                        <Col sm={6} md={4} key={id}>
                             <GameItems id={id}
                                 name={name}
                                 background_image={background_image}

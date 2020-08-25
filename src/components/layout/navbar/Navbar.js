@@ -18,7 +18,6 @@ import styled from 'styled-components';
 //Styled components
 const StyledNavbar = styled(Navbar)`
     text-transform: uppercase;
-    background-color: ${({theme}) => theme.colors.blueGreen};
 ` 
 
 const StyledLink = styled(NavLink) `

@@ -1,18 +1,25 @@
 import React from 'react';
 import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col'
 import { GiGamepad } from 'react-icons/gi';
+import styled from 'styled-components';
 
-function Platforms( { platforms } ) {
+const StyledListItem = styled(GiGamepad)`
+    padding-right: 10px;
+    font-size: 30px;
+`
+
+function Platforms({ platforms }) {
     return (
         <Row>
-            <ul >
-                {platforms.map( platformName => {
+            <Col>
+                {platforms.map(platformName => {
                     const { platform } = platformName;
                     return (
-                        <li key={platform.name}>{platform.name} <GiGamepad /></li>
+                        <Col key={platform.name}><StyledListItem /> {platform.name} </Col>
                     )
-                } )}
-            </ul>
+                })}
+            </Col>
         </Row>
     );
 }

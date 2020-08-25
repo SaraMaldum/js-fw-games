@@ -6,9 +6,10 @@ import StyledBtn from '../layout/button/StyledButton';
 import styled from 'styled-components';
 
 const StyledCard = styled(Card)`
-filter: drop-shadow(5px 5px 10px #27423D);
+    filter: drop-shadow(5px 5px 10px #2b2b2b);
     height: 410px;
     margin-bottom: 20px;
+    color: ${({theme}) => theme.colors.darkGrey}
 ` 
 const StyledImg = styled(Card) `
     background-image: url(${props => props.img});
@@ -20,10 +21,10 @@ const StyledImg = styled(Card) `
 function GameItems( { id, name, background_image, rating, released } ) {
     return (
         <StyledCard>
-            <StyledImg variant="top" img={background_image} alt="Game cover photo" />
+            <StyledImg variant="top" img={background_image} alt={name} />
             <Card.Body>
                 <Card.Title>{name}</Card.Title>
-                <Card.Text>Release date: {released}</Card.Text>
+                <Card.Text>Released: {released}</Card.Text>
                 <Card.Text>Game rating: {rating}</Card.Text>
                 <Link to={'games/' + id}>
                     <StyledBtn variant="secondary" block>

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Footer = styled.footer`
-    color: ${({theme}) => theme.colors.orange};
+    color: ${({theme}) => theme.colors.blue};
     font-weight: bold;
     background-color: ${({theme}) => theme.colors.darkGrey};
     padding: 10px;

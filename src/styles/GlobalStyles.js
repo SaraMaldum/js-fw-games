@@ -5,6 +5,8 @@ const GlobalStyle = createGlobalStyle`
         height: 100vh;
         display: flex;
         flex-direction: column;
+        background-color: ${({theme}) => theme.colors.blueGreen};
+        color: ${({theme}) => theme.colors.white};
     }
 `
 
