@@ -5,13 +5,7 @@ import { GAMES_URL } from '../../constants/api';
 import GameItems from './GameItems';
 import Search from './search/Search';
 import StyledSpinner from './spinner/Spinner';
-import styled from 'styled-components';
-
-//Styled components
-const StyledResultMsg = styled.p`
-    text-align: center;
-    font-weight: bold;
-`
+import NoResultMsg from './resultMsg/NoResultMsg';
 
 function GamesOverview() {
     const [games, setGames] = useState([]);
@@ -54,7 +48,7 @@ function GamesOverview() {
     return (
         <>
             <Search handleSearch={filterGames} />
-            {filteredGames.length === 0 && <StyledResultMsg>No results found</StyledResultMsg>}
+            {filteredGames.length === 0 && <NoResultMsg>No results found</NoResultMsg>}
             <Row>
                 {filteredGames.map(game => {
                     const { id, name, background_image, rating, released } = game;

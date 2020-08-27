@@ -9,9 +9,14 @@ import Platforms from './platform/Platform';
 import Genres from './genres/Genres';
 import StyledSpinner from './spinner/Spinner';
 import styled from 'styled-components';
-import Trailers from './Trailers';
+import Trailers from './trailers/Trailers';
+import { HiLink } from 'react-icons/hi';
 
 //Styled components
+const StyledRow = styled(Row)`
+    margin-Bottom: 20px;
+`
+
 const StyledImage = styled(Image)`
     width: 100%;
     margin-bottom: 20px;
@@ -52,7 +57,7 @@ function GameDetail() {
     return (
         <>
             <Heading title="Game details" />
-            <Row>
+            <StyledRow>
                 <Col md={12}>
                     <h2>{gamesDetail.name}</h2>
                     <StyledImage src={gamesDetail.background_image} />
@@ -74,13 +79,16 @@ function GameDetail() {
 
                 <Col md={4}>
                     <h3>Game link:</h3>
-                    <StyledWebLink href={gamesDetail.website} >{gamesDetail.website}</StyledWebLink>
+                    <StyledWebLink href={gamesDetail.website}><HiLink /> {gamesDetail.website}</StyledWebLink>
                 </Col>
 
-            <Trailers />
+                <Col md={8}>
+                    <h3>Game trailers: </h3>
+                    <Trailers />
 
-            </Row>
+                </Col>
 
+            </StyledRow>
         </>
     );
 
