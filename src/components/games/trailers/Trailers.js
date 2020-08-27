@@ -4,18 +4,8 @@ import { useParams } from "react-router-dom";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { RiMovieFill } from 'react-icons/ri';
-import styled from 'styled-components';
 import NoResultMsg from '../resultMsg/NoResultMsg';
-
-const TrailerLink = styled.a`
-color: ${({ theme }) => theme.colors.orange};
-
-&:hover {
-    color: ${({ theme }) => theme.colors.orange};
-    font-weight: bold;
-    text-decoration: none;
-}
-`
+import StyledLink from '../styledLinks/StyledLink';
 
 function Trailers() {
     const [displayTrailer, setDisplayTrailer] = useState([]);
@@ -41,7 +31,7 @@ function Trailers() {
                     return (
                         <>
                             <Col md={12} key={trailer.id}>
-                                <TrailerLink href={trailer.data.max}><RiMovieFill /> {trailer.data.max}</TrailerLink>
+                                <StyledLink href={trailer.data.max}><RiMovieFill /> {trailer.data.max}</StyledLink>
                             </Col>
                         </>
                     )

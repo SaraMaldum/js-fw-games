@@ -40,6 +40,7 @@ const style = {
 const StyledGamepad = styled(GiGamepad)`
     color: ${({ theme }) => theme.colors.orange};
     font-size: 50px;
+    filter: drop-shadow(5px 5px 5px #2b2b2b);
 
     &:hover {
         transition: .3s;

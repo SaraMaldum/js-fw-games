@@ -11,6 +11,7 @@ import StyledSpinner from './spinner/Spinner';
 import styled from 'styled-components';
 import Trailers from './trailers/Trailers';
 import { HiLink } from 'react-icons/hi';
+import StyledLink from './styledLinks/StyledLink';
 
 //Styled components
 const StyledRow = styled(Row)`
@@ -22,16 +23,6 @@ const StyledImage = styled(Image)`
     margin-bottom: 20px;
     border-radius: 50px;
     filter: drop-shadow(5px 5px 5px gray);
-`
-
-const StyledWebLink = styled.a`
-    color: ${({ theme }) => theme.colors.orange};
-
-    &:hover {
-        color: ${({ theme }) => theme.colors.orange};
-        font-weight: bold;
-        text-decoration: none;
-    }
 `
 
 function GameDetail() {
@@ -79,13 +70,12 @@ function GameDetail() {
 
                 <Col md={4}>
                     <h3>Game link:</h3>
-                    <StyledWebLink href={gamesDetail.website}><HiLink /> {gamesDetail.website}</StyledWebLink>
+                    <StyledLink href={gamesDetail.website}><HiLink /> {gamesDetail.website}</StyledLink>
                 </Col>
 
                 <Col md={8}>
                     <h3>Game trailers: </h3>
                     <Trailers />
-
                 </Col>
 
             </StyledRow>
