@@ -9,6 +9,7 @@ import Platforms from './platform/Platform';
 import Genres from './genres/Genres';
 import StyledSpinner from './spinner/Spinner';
 import styled from 'styled-components';
+import Trailers from './Trailers';
 
 //Styled components
 const StyledImage = styled(Image)`
@@ -75,7 +76,11 @@ function GameDetail() {
                     <h3>Game link:</h3>
                     <StyledWebLink href={gamesDetail.website} >{gamesDetail.website}</StyledWebLink>
                 </Col>
+
+            <Trailers />
+
             </Row>
+
         </>
     );
 

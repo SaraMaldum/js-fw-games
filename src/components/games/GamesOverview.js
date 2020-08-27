@@ -7,6 +7,7 @@ import Search from './search/Search';
 import StyledSpinner from './spinner/Spinner';
 import styled from 'styled-components';
 
+//Styled components
 const StyledResultMsg = styled.p`
     text-align: center;
     font-weight: bold;
@@ -17,6 +18,7 @@ function GamesOverview() {
     const [filteredGames, setFilteredGames] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    //Fetch the API
     useEffect(() => {
         fetch(GAMES_URL)
             .then(response => response.json())
@@ -28,6 +30,7 @@ function GamesOverview() {
             .finally(() => setLoading(false));
     }, []);
 
+    //Search field
     const filterGames = function (e) {
         const searchValue = e.target.value.toLowerCase();
 
@@ -42,10 +45,12 @@ function GamesOverview() {
         setFilteredGames(filteredArray);
     }
 
+    //Spinner
     if (loading) {
         return <StyledSpinner animation="border" size="md" />;
     }
 
+    //Return the above results
     return (
         <>
             <Search handleSearch={filterGames} />
