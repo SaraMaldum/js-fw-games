@@ -12,6 +12,7 @@ import styled from 'styled-components';
 import Trailers from './trailers/Trailers';
 import { HiLink } from 'react-icons/hi';
 import StyledLink from './styledLinks/StyledLink';
+import SimilarGames from "./similarGames/SimilarGames";
 
 //Styled components
 const StyledRow = styled(Row)`
@@ -19,7 +20,7 @@ const StyledRow = styled(Row)`
 `
 
 const StyledImage = styled(Image)`
-    width: 100%;
+    max-width: 90%;
     margin-bottom: 20px;
     border-radius: 50px;
     filter: drop-shadow(5px 5px 5px gray);
@@ -51,11 +52,16 @@ function GameDetail() {
             <StyledRow>
                 <Col md={12}>
                     <h2>{gamesDetail.name}</h2>
-                    <StyledImage src={gamesDetail.background_image} />
+                    <StyledImage className="rounded mx-auto d-block" src={gamesDetail.background_image} />
                 </Col>
 
                 <Col md={12}>
                     <p>{gamesDetail.description_raw}</p>
+                </Col>
+
+                <Col md={12}>
+                    <h3>Did you like this game? Check out these suggestions: </h3>
+                    <SimilarGames />
                 </Col>
 
                 <Col md={4}>
