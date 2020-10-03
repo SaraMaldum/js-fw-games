@@ -50,7 +50,7 @@ const StyledGamepad = styled(GiGamepad)`
 
 function Menu() {
     return (
-        <Router>
+        <Router basename='/gamesplatform'>
             <StyledNavbar variant="dark" expand="lg">
                 <NavLink to="/">
                     <Navbar.Brand><StyledGamepad /></Navbar.Brand>

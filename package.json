@@ -1,5 +1,6 @@
 {
   "name": "games",
+  "homepage": "http://saramaldum.com/gamesplatform",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
